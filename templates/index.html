@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yield Crop Prediction</title>
+    <link href='/static/style.css' rel='stylesheet'>
+</head>
+<body>
+    <img class="bg-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvYIrMaMauushAE-ackwO-YluObgR-78_6Ew&s" alt="background image">
+    <div class='title'><h1>Yield Crop Prediction</h1></div>
+    <form actions='/price' method ='POST' >
+        <div>
+            <div class='city'>SELECT THE LOCATION YOU WANT</div>
+            <select name='location' class="form-select" aria-label="Default select example">
+                {% for j in q %}
+                    <option value={{j}}>{{j}}</option>
+                {% endfor %}
+            </select>
+            <div class='city'>SELECT THE Crop YOU WANT</div>
+            <select name='crop' class="form-select" aria-label="Default select example">
+                {% for i in q1 %}
+                    <option value={{i}}>{{i}}</option>
+                {% endfor %}
+            </select>
+            <label for="pest">Pesticide_Tonnes</label>
+            <input type="text"  name="pest" required>
+            <label for="Avg_rain">average_rain_fall_mm_per_year</label>
+            <input type="text"  name="Avg_rain" required>
+            <label for="Avg_temp">Avg_temp</label>
+            <input type="text"  name="Avg_temp" required>
+            <button class="submit" type="submit" class="btn btn-primary">Submit</button>
+            <p>hg/ha_yield : {{val}}</p>
+        </div>
+    </form>
+</body>
+</html>
